@@ -15,5 +15,11 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+
+  def show
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
+  end
+
   end
 end
